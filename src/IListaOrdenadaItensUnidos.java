@@ -1,15 +1,18 @@
-public interface IListaOrdenadaItensUnidos<T extends Comparable<T>> {
-    public void incluir(T elemento) throws Exception;
-    public void insereInicio(T elemento) throws Exception;
-    public void insereFinal(T elemento) throws Exception;
-    public T get(int index) throws Exception;
-    public int getPosElemento(T elemento) throws Exception;
-    public void remover(int index) throws Exception;
-    public void limpar();
-    int getTamanho();
-    public boolean contem(T elemento) throws Exception;
-    public void imprimeLista();
 
+public abstract class IListaOrdenadaItensUnidos<T extends Comparable> {
+    public abstract void incluir(T elemento) throws Exception;
 
+    public abstract T get(int index) throws Exception;
+
+    public abstract int getPosElemento(T elemento) throws Exception;
+
+    public abstract void remover(int index) throws Exception;
+
+    public abstract void removerPorElemento(T elemento) throws Exception;
+
+    public abstract void limpar() throws Exception;
+
+    public abstract int getTamanho();
+
+    public abstract boolean Contem(T elemento);
 }
-
