@@ -181,6 +181,11 @@ public class ListaEncadeadaOrdenada <T extends Comparable<T>> implements IListaO
     }
 
     @Override
+    public void removerPorElemento(T elemento) throws Exception {
+
+    }
+
+    @Override
     public void limpar() {
         if(inicio==null){
              System.out.println("Lista Vazia");
@@ -210,7 +215,7 @@ public class ListaEncadeadaOrdenada <T extends Comparable<T>> implements IListaO
         return auxPegaNo;
     }
     @Override
-    public boolean contem(T elemento) throws Exception {
+    public boolean Contem(T elemento) throws Exception {
 
         for (int i = 0; i < getTamanho(); i++) {
             No<T> Atual = PegarNo(i);

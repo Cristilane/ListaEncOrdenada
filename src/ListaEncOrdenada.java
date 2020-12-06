@@ -41,7 +41,7 @@ public class ListaEncOrdenada  {
         listaEncadeadaOrdenada.incluir(0);
         listaEncadeadaOrdenada.imprimeLista();
 
-        if(listaEncadeadaOrdenada.contem(11)) {
+        if(listaEncadeadaOrdenada.Contem(11)) {
             System.out.println("Lista contém este elemento");;
         }else
             System.out.println("Lista não contém este elemento");
