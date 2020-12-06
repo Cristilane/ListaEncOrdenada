@@ -1,7 +1,7 @@
 
 public class ListaEncOrdenada  {
     public static void main(String[] args) throws Exception {
-        IListaOrdenadaItensUnidos listaEncadeadaOrdenada = new ListaEncadeadaOrdenada();
+        IListaOrdenadaItensUnidos listaEncadeadaOrdenada = new ListaEncadeadaOrdenadaTest();
 
         listaEncadeadaOrdenada.imprimeLista();
 

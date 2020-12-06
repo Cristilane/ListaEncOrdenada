@@ -1,11 +1,11 @@
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
-public class ListaEncadeadaOrdenada <T extends Comparable<T>> implements IListaOrdenadaItensUnidos<T> {
+public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements IListaOrdenadaItensUnidos<T> {
     private No<T> inicio;
     private No<T> fim;
     int qtd;
 
-    public ListaEncadeadaOrdenada() {
+    public ListaEncadeadaOrdenadaTest() {
         this.inicio = null;
         this.fim = null;
         this.qtd=0;
