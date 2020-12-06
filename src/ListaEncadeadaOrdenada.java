@@ -94,10 +94,6 @@ public class ListaEncadeadaOrdenada <T extends Comparable<T>> implements IListaO
     }
         @Override
     public  void incluir(T elemento) throws Exception {
-            //cria o nó novo, parametro de entrada é a T e a lista atual
-
-            //esse if é para inserir de forma ordenada no inicio
-            //se a lista for nula ou o dado que estiver na lista for maior ou igual ao novo dado
             for (int i = 0; i <qtd ; i++) {
                 if (inicio.dado.equals(elemento)){
                     throw new Exception("ESTE ELEMENTO JÁ CONTÉM NA LISTA");
@@ -182,7 +178,22 @@ public class ListaEncadeadaOrdenada <T extends Comparable<T>> implements IListaO
 
     @Override
     public void removerPorElemento(T elemento) throws Exception {
-
+//remover
+        No<T> novo = inicio;
+        if(novo.getDado().equals(elemento)){
+            inicio = novo.getProx();
+            novo.setProx(null);
+        } else {
+            while(novo.getProx() != null){
+                if(novo.getProx().getDado().equals(elemento)){
+                    break;
+                }
+                novo = novo.getProx();
+            }
+            No aux = novo.getProx();
+            novo.setProx(aux.getProx());
+            aux.setProx(null);
+        }
     }
 
     @Override

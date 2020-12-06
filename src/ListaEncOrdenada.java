@@ -49,7 +49,8 @@ public class ListaEncOrdenada  {
         listaEncadeadaOrdenada.remover(9);
         listaEncadeadaOrdenada.imprimeLista();
 
-
+        listaEncadeadaOrdenada.removerPorElemento(8);
+        listaEncadeadaOrdenada.imprimeLista();
          /*
         //Incluir na lista toda
         listaEncadeadaOrdenada.incluir(0);
