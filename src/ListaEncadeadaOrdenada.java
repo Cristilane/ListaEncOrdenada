@@ -1,9 +1,9 @@
 
-public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements IListaOrdenadaItensUnidos<T> {
+public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOrdenadaItensUnidos<T> {
     private No<T> inicio;
     int qtd;
 
-    public ListaEncadeadaOrdenadaTest() {
+    public ListaEncadeadaOrdenada() {
         this.inicio = null;
         this.qtd=0;
     }
