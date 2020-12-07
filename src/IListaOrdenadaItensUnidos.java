@@ -3,9 +3,9 @@ public  interface IListaOrdenadaItensUnidos<T extends Comparable> {
 
     public  void incluir(T elemento) throws Exception;
 
-    public void insereInicio(T elemento) throws Exception;
+    //public void insereInicio(T elemento) throws Exception;
 
-    public void insereFinal(T elemento) throws Exception;
+    //public void insereFinal(T elemento) throws Exception;
 
     public  T get(int index) throws Exception;
 

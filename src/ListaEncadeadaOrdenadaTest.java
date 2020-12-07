@@ -1,13 +1,10 @@
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements IListaOrdenadaItensUnidos<T> {
     private No<T> inicio;
-    private No<T> fim;
     int qtd;
 
     public ListaEncadeadaOrdenadaTest() {
         this.inicio = null;
-        this.fim = null;
         this.qtd=0;
     }
 
@@ -17,15 +14,11 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
         }
         return false;
     }
-
+/*
    @Override
     public void insereInicio(T elemento) throws Exception {
         No<T> novoNo = new No<T>(elemento, null);
-       for (int i = 0; i <qtd ; i++) {
-           if (inicio.dado.equals(elemento)){
-               throw new Exception("ESTE ELEMENTO JÁ CONTÉM NA LISTA");
-           }
-       }
+
         if (inicio == null) {
             inicio = novoNo;
         } else {
@@ -34,6 +27,7 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
         }
         qtd++;
     }
+
     public No<T> getCauda(){
         No<T> aux = inicio;
         if (aux == null) {
@@ -45,15 +39,11 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
         return aux;
 
     }
+
     @Override
     public void insereFinal(T elemento) throws Exception{
 
         No<T> novoNo = new No<T>(elemento, null);
-        for (int i = 0; i <qtd ; i++) {
-            if (inicio.dado.equals(elemento)){
-                throw new Exception("ESTE ELEMENTO JÁ CONTÉM NA LISTA");
-            }
-        }
         if (inicio == null) {
             inicio = novoNo;
         } else {
@@ -62,11 +52,7 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
         qtd++;
     }
     public void inserePosicao(T elemento, int posicao) throws Exception {
-        for (int i = 0; i <qtd ; i++) {
-            if (inicio.dado.equals(elemento)){
-                throw new Exception("ESTE ELEMENTO JÁ CONTÉM NA LISTA");
-            }
-        }
+
         //Verifica se a posição é válida
         if (posicao == 0) {
             insereInicio(elemento);
@@ -89,15 +75,31 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
         novoNo.setProx(noPosteriorInsercao);
         qtd++;
     }
+
+     */
+    private No<T> PegarNo(int posicao) throws  Exception{
+        if (posicao >= getTamanho()) {
+            throw new Exception("Posição solicitada não existe na lista");
+        }
+        No<T> auxPegaNo = null;
+        for (int i = 0; i <= posicao; i++) {
+            if (i == 0) {
+                auxPegaNo = this.inicio;
+            } else {
+                auxPegaNo = auxPegaNo.getProx();
+            }
+        }
+        return auxPegaNo;
+    }
         @Override
     public  void incluir(T elemento) throws Exception {
-            for (int i = 0; i <qtd ; i++) {
-                if (inicio.dado.equals(elemento)){
-                    throw new Exception("ESTE ELEMENTO JÁ CONTÉM NA LISTA");
+            for (int i = 0; i < getTamanho(); i++) {
+                No<T> Atual = PegarNo(i);
+                if ( Atual.getDado().equals(elemento)) {
+                    throw new Exception("Elemento já existe na lista");
                 }
             }
             No novo = new No(elemento);
-
             if (inicio == null || inicio.dado.compareTo(elemento) > 0) {
                     novo.prox = inicio;
                     inicio = novo;
@@ -112,6 +114,8 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
                     this.qtd++;
                 }
         }
+
+
     @Override
     public T get(int index) throws Exception {
         No<T> novo = PegarNo(index);
@@ -196,20 +200,7 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
     public int getTamanho() {
         return qtd;
     }
-    private No<T> PegarNo(int posicao) throws  Exception{
-        if (posicao >= getTamanho()) {
-            throw new Exception("Posição solicitada não existe na lista");
-        }
-        No<T> auxPegaNo = null;
-        for (int i = 0; i <= posicao; i++) {
-            if (i == 0) {
-                auxPegaNo = this.inicio;
-            } else {
-                auxPegaNo = auxPegaNo.getProx();
-            }
-        }
-        return auxPegaNo;
-    }
+
     @Override
     public boolean Contem(T elemento) throws Exception {
 
@@ -221,7 +212,6 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
         }
         return false;
     }
-
 
     public void imprimeLista() {
         //Realiza validações
