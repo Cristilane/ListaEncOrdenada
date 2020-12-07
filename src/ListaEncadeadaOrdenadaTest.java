@@ -80,16 +80,13 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
         }
         //Inserir no meio da lista
         No<T> novoNo = new No<T>(elemento, null);
-
         No<T> noAnteriorInsercao = inicio;
         for (int i = 0; i < posicao - 1; i++) {
             noAnteriorInsercao = noAnteriorInsercao.getProx();
         }
-
         No<T> noPosteriorInsercao = noAnteriorInsercao.getProx();
         noAnteriorInsercao.setProx(novoNo);
         novoNo.setProx(noPosteriorInsercao);
-
         qtd++;
     }
         @Override
@@ -102,30 +99,18 @@ public class ListaEncadeadaOrdenadaTest<T extends Comparable<T>> implements ILis
             No novo = new No(elemento);
 
             if (inicio == null || inicio.dado.compareTo(elemento) > 0) {
-                    //novo vai apontar para a lista
                     novo.prox = inicio;
-                    //lista vai ser o novo
                     inicio = novo;
                     this.qtd++;
-
                 } else {
-                    //se a lista não for vazia ou, se o primeiro elemento for maior que o novo então
-                    //tem que percorer a lista procurando um lugar para o novo item se encaixar de forma ordenada
-                    //cria o Nó auxiliar sempre que for pecorrer a lista para não perder o valor da lista verdadeira
                     No aux = inicio;
-                    //enquanto aux.proximo for diferente de null e o novo (string que vai ser inserida)
-                    //for maior que o aux.proximo.dado
                     while (aux.prox != null && (elemento).compareTo((T) aux.prox.dado) > 0) {
-                        //aux avança para o proximo
                         aux = aux.prox;
                     }
-                    //agora, o novo.prox aponta para aux.prox e o aux.prox é um novo
                     novo.prox = aux.prox;
                     aux.prox = novo;
                     this.qtd++;
                 }
-
-
         }
     @Override
     public T get(int index) throws Exception {
