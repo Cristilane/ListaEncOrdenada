@@ -9,7 +9,7 @@ public  interface IListaOrdenadaItensUnidos<T extends Comparable> {
 
     public  T get(int index) throws Exception;
 
-    public  int getPosElemento(T elemento) throws Exception;
+    public int getPosElemento(T elemento) throws Exception;
 
     public void remover(int index) throws Exception;
 

@@ -78,7 +78,7 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
 
      */
     private No<T> PegarNo(int posicao) throws  Exception{
-        if (posicao >= getTamanho()) {
+        if (posicao > getTamanho()) {
             throw new Exception("Posição solicitada não existe na lista");
         }
         No<T> auxPegaNo = null;
@@ -118,9 +118,9 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
 
     @Override
     public T get(int index) throws Exception {
-        No<T> novo = PegarNo(index);
-        if (novo != null) {
-            return novo.getDado();
+        No<T> no = PegarNo(index);
+        if (no != null) {
+            return no.getDado();
         }
         throw new Exception("Posição solicitada não existe na lista");
     }
@@ -135,10 +135,12 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
                 return i;
             }else{
                 novo = novo.prox;
-                i++;
             }
+            i++;
         }
         throw new Exception("Posição solicitada não existe na lista");
+
+
     }
 
     @Override
@@ -176,13 +178,14 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
             while(novo.getProx() != null){
                 if(novo.getProx().getDado().equals(elemento)){
                     break;
+
                 }
                 novo = novo.getProx();
             }
             No aux = novo.getProx();
             novo.setProx(aux.getProx());
             aux.setProx(null);
-        }
+        } qtd--;
     }
 
     @Override
@@ -198,7 +201,7 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
 
     @Override
     public int getTamanho() {
-        return qtd;
+        return qtd-1;
     }
     /*Ordem de complexidade de uma lista encadeada Ordenada -
     Pior caso- Quando o elemento procurado é o ultimo da lista, logo sua complexidade é O(N),
@@ -221,7 +224,7 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
     public void imprimeLista() {
         //Realiza validações
         if(isVazia()) {
-            System.out.println("Lista Vazia. Não há elementos para impressão");
+            System.out.println("Lista Vazia. Não há elementos para impressão\n");
             return;
         }
         No<T> auxiliar = inicio;
@@ -229,7 +232,7 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
             System.out.print(" - " + auxiliar.getDado());
             auxiliar = auxiliar.getProx();
         }
-        System.out.println();
+        System.out.println("\n");
 
     }
 
