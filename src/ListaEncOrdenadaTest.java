@@ -91,11 +91,14 @@ public class ListaEncOrdenadaTest {
             listaEncadeadaOrdenada.getPosElemento(4);
             System.out.println("Este elemento não existe\n");
         }
+
+        //Adicionando elmento já existente na lista
+        listaEncadeadaOrdenada.incluir(4);
+        listaEncadeadaOrdenada.imprimeLista();
+
         //limpar lista
         listaEncadeadaOrdenada.limpar();
         listaEncadeadaOrdenada.imprimeLista();
-
-
     }
 
 
