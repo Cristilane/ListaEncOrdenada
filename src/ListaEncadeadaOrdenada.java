@@ -200,7 +200,12 @@ public class ListaEncadeadaOrdenada<T extends Comparable<T>> implements IListaOr
     public int getTamanho() {
         return qtd;
     }
-
+    /*Ordem de complexidade de uma lista encadeada Ordenada -
+    Pior caso- Quando o elemento procurado é o ultimo da lista, logo sua complexidade é O(N),
+    porque terá que percorre toda a lista buscando o elemento passando por N no.
+    Melhor caso- Quando o número procurado é o elemento que se encontra na primeiro No,
+    sendo comparado apenas uma única vez e sua complexidade é de O(1).
+    */
     @Override
     public boolean Contem(T elemento) throws Exception {
 
